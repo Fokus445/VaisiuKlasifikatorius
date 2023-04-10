@@ -1,0 +1,16 @@
+version: "3"
+services:
+    jupyter:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+        # Pakeiskite i savo path kur yra projekto folderis
+            - D:/edwin/AI/klasifikatorius:/tf
+        ports:
+            - "8888:8888"
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities: [gpu]
